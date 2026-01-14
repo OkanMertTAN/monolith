@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react"; // 1. useState eklendi
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion"; // 2. AnimatePresence eklendi
+import { motion, AnimatePresence } from "framer-motion";
 import { 
   ArrowRight, 
   Building2, 
@@ -15,7 +15,7 @@ import {
   Play,
   Layers,
   ArrowUpRight,
-  X // 3. Kapatma ikonu için X eklendi
+  X
 } from "lucide-react";
 import { sozluk } from "@/data/sozluk";
 import { projectsData } from "@/data/projects";
@@ -44,7 +44,6 @@ const BlueprintPattern = () => (
 );
 
 export default function HomeClient({ lang }: { lang: string }) {
-  // 4. Video Popup State'i
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const t = sozluk[lang] || sozluk.tr;
@@ -68,10 +67,12 @@ export default function HomeClient({ lang }: { lang: string }) {
     <main className="min-h-screen relative font-sans text-slate-900 selection:bg-blue-900 selection:text-white overflow-x-hidden">
       
       {/* --- HERO SECTION --- */}
-      <section className="relative w-full h-screen flex flex-col lg:flex-row overflow-hidden">
+      {/* MOBİL DÜZELTME: h-screen yerine min-h-screen kullanıldı. lg:h-screen ile masaüstünde sabitlendi. */}
+      <section className="relative w-full min-h-screen lg:h-screen flex flex-col lg:flex-row lg:overflow-hidden">
         
         {/* SOL TARAF */}
-        <div className="w-full lg:w-[40%] h-full flex flex-col justify-center px-8 md:px-16 relative z-10 border-r border-slate-200 bg-slate-50 overflow-hidden">
+        {/* MOBİL DÜZELTME: justify-center yerine justify-start ve pt-32 eklendi. Böylece yazı menünün altına girmez. */}
+        <div className="w-full lg:w-[40%] h-auto lg:h-full flex flex-col justify-start pt-32 lg:pt-0 lg:justify-center px-6 md:px-16 relative z-10 border-r border-slate-200 bg-slate-50 overflow-hidden pb-10 lg:pb-0">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:20px_20px] pointer-events-none"></div>
           <BlueprintPattern />
           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-amber-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
@@ -84,30 +85,30 @@ export default function HomeClient({ lang }: { lang: string }) {
           >
             <div className="absolute -left-16 top-10 w-1 h-32 bg-linear-to-b from-amber-500 to-transparent hidden lg:block"></div>
 
-            <div className="inline-flex items-center gap-3 mb-8 bg-white/50 backdrop-blur-sm px-3 py-1 rounded border border-slate-200 shadow-sm w-fit">
+            <div className="inline-flex items-center gap-3 mb-6 lg:mb-8 bg-white/50 backdrop-blur-sm px-3 py-1 rounded border border-slate-200 shadow-sm w-fit">
                <span className="h-px w-8 bg-amber-600"></span>
-               <span className="text-xs font-bold tracking-[0.3em] text-slate-500 uppercase">{t.hero.badge}</span>
+               <span className="text-[10px] lg:text-xs font-bold tracking-[0.3em] text-slate-500 uppercase">{t.hero.badge}</span>
             </div>
 
-            <h1 className="font-heading text-6xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-none mb-6 text-slate-900 drop-shadow-sm">
+            {/* MOBİL DÜZELTME: Text boyutu küçültüldü (text-5xl) */}
+            <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9] mb-6 text-slate-900 drop-shadow-sm">
               {t.hero.title_main}<br/><span className="text-slate-400">{t.hero.title_sub}</span>
             </h1>
             
-            <p className="text-lg text-slate-700 font-medium leading-relaxed mb-10 max-w-md border-l-4 border-amber-500 pl-6 bg-white/60 py-4 rounded-r-lg backdrop-blur-md shadow-sm">
+            <p className="text-base lg:text-lg text-slate-700 font-medium leading-relaxed mb-8 lg:mb-10 max-w-md border-l-4 border-amber-500 pl-6 bg-white/60 py-4 rounded-r-lg backdrop-blur-md shadow-sm">
               {t.hero.description}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-start gap-5">
-              <Link href={`/${lang}/projeler`}>
-                <button className="px-8 py-4 bg-slate-900 text-white font-bold uppercase tracking-widest rounded-sm shadow-2xl hover:bg-amber-600 transition-all flex items-center gap-3 group hover:shadow-amber-600/20">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-start gap-4 lg:gap-5">
+              <Link href={`/${lang}/projeler`} className="w-full sm:w-auto">
+                <button className="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white font-bold uppercase tracking-widest rounded-sm shadow-2xl hover:bg-amber-600 transition-all flex items-center justify-center gap-3 group hover:shadow-amber-600/20">
                   {t.hero.btn_explore} <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-amber-500 group-hover:text-white" />
                 </button>
               </Link>
               
-              {/* 5. Butona onClick eventi eklendi */}
               <button 
                 onClick={() => setIsVideoOpen(true)}
-                className="px-8 py-4 bg-white/80 border border-slate-300 text-slate-900 font-bold uppercase tracking-widest rounded-sm hover:border-slate-500 hover:bg-white transition-all flex items-center gap-3 shadow-sm hover:shadow-md"
+                className="w-full sm:w-auto px-8 py-4 bg-white/80 border border-slate-300 text-slate-900 font-bold uppercase tracking-widest rounded-sm hover:border-slate-500 hover:bg-white transition-all flex items-center justify-center gap-3 shadow-sm hover:shadow-md"
               >
                 <Play size={14} className="fill-slate-900" />
                 {t.hero.btn_watch}
@@ -117,7 +118,8 @@ export default function HomeClient({ lang }: { lang: string }) {
         </div>
 
         {/* SAĞ TARAF: VİDEO */}
-        <div className="w-full lg:w-[60%] h-full relative bg-slate-900 overflow-hidden shadow-2xl shadow-slate-900/50">
+        {/* MOBİL DÜZELTME: h-[50vh] verildi. Mobilde ekranın yarısını kaplar, masaüstünde full (h-full). */}
+        <div className="w-full lg:w-[60%] h-[50vh] lg:h-full relative bg-slate-900 overflow-hidden shadow-2xl shadow-slate-900/50">
            <video 
              autoPlay 
              muted 
@@ -130,13 +132,16 @@ export default function HomeClient({ lang }: { lang: string }) {
            <div className="absolute inset-0 bg-slate-900/20 mix-blend-multiply"></div>
            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/grid-me.png')] opacity-10 pointer-events-none"></div>
            
-           <div className="absolute bottom-0 left-0 w-full bg-linear-to-t from-black/80 to-transparent p-12 flex justify-between items-end">
+           <div className="absolute bottom-0 left-0 w-full bg-linear-to-t from-black/80 to-transparent p-6 lg:p-12 flex justify-between items-end">
               <div className="text-white">
-                <div className="text-xs font-bold uppercase tracking-widest text-amber-500 mb-1">{t.hero.video_badge}</div>
-                <div className="text-2xl font-heading font-bold tracking-tight">SKY TOWER RESIDENCE</div>
+                <div className="text-[10px] lg:text-xs font-bold uppercase tracking-widest text-amber-500 mb-1">{t.hero.video_badge}</div>
+                <div className="text-xl lg:text-2xl font-heading font-bold tracking-tight">SKY TOWER RESIDENCE</div>
               </div>
-              <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md bg-white/5 hover:scale-105 transition-transform cursor-pointer group">
-                 <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse shadow-[0_0_15px_rgba(239,68,68,0.6)] group-hover:bg-red-400"></div>
+              <div 
+                onClick={() => setIsVideoOpen(true)}
+                className="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-white/20 flex items-center justify-center backdrop-blur-md bg-white/5 hover:scale-105 transition-transform cursor-pointer group"
+              >
+                 <div className="w-2.5 h-2.5 lg:w-3 lg:h-3 bg-red-500 rounded-full animate-pulse shadow-[0_0_15px_rgba(239,68,68,0.6)] group-hover:bg-red-400"></div>
               </div>
            </div>
         </div>
@@ -146,14 +151,15 @@ export default function HomeClient({ lang }: { lang: string }) {
       <section className="bg-slate-900/95 text-white py-12 border-t border-slate-800 backdrop-blur-sm relative">
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
         <div className="container mx-auto px-6 relative z-10">
+          {/* MOBİL DÜZELTME: grid-cols-2 ile mobilde 2'li yan yana sıralama sağlandı */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 divide-x divide-white/10">
             {stats.map((stat, i) => (
-              <div key={i} className="text-center px-4 group cursor-default">
-                 <div className={`flex items-center justify-center gap-2 text-4xl font-heading font-bold mb-2 ${stat.color} drop-shadow-lg`}>
-                   <stat.icon size={28} className="opacity-80 group-hover:opacity-100 transition-opacity" />
+              <div key={i} className="text-center px-2 lg:px-4 group cursor-default">
+                 <div className={`flex items-center justify-center gap-2 text-3xl lg:text-4xl font-heading font-bold mb-2 ${stat.color} drop-shadow-lg`}>
+                   <stat.icon size={24} className="opacity-80 group-hover:opacity-100 transition-opacity lg:w-7 lg:h-7" />
                    {stat.val}
                  </div>
-                 <div className="text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase group-hover:text-white transition-colors">
+                 <div className="text-[9px] lg:text-[10px] font-bold text-slate-400 tracking-[0.2em] uppercase group-hover:text-white transition-colors">
                    {stat.label}
                  </div>
               </div>
@@ -163,13 +169,13 @@ export default function HomeClient({ lang }: { lang: string }) {
       </section>
 
       {/* --- FEATURED PROJECTS --- */}
-      <section className="py-32 px-6 relative z-10 bg-slate-50/50">
+      <section className="py-20 lg:py-32 px-6 relative z-10 bg-slate-50/50">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.03)_1px,transparent_1px)] bg-size-[60px_60px] opacity-50 pointer-events-none"></div>
         <div className="container mx-auto max-w-7xl relative z-10">
-          <div className="flex justify-between items-end mb-16 border-b border-slate-200/60 pb-6">
+          <div className="flex justify-between items-end mb-10 lg:mb-16 border-b border-slate-200/60 pb-6">
             <div>
                <span className="text-blue-900 font-bold text-xs tracking-widest uppercase mb-2 block">{t.projects_section.badge}</span>
-               <h2 className="text-4xl md:text-5xl font-heading font-bold text-slate-900">
+               <h2 className="text-3xl md:text-5xl font-heading font-bold text-slate-900">
                  {t.projects_section.title_main} <span className="text-slate-500">{t.projects_section.title_sub}</span>
                </h2>
             </div>
@@ -178,12 +184,12 @@ export default function HomeClient({ lang }: { lang: string }) {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
             {featuredProjects.map((project: any) => (
               <motion.div
                 key={project.id}
                 whileHover={{ y: -10 }}
-                className="group relative h-125 bg-white/80 backdrop-blur-sm rounded-sm overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/50 cursor-pointer"
+                className="group relative h-96 lg:h-125 bg-white/80 backdrop-blur-sm rounded-sm overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 border border-white/50 cursor-pointer"
               >
                 <div className="absolute inset-0 overflow-hidden">
                   <Image 
@@ -201,8 +207,8 @@ export default function HomeClient({ lang }: { lang: string }) {
                   </span>
                 </div>
 
-                <div className="absolute bottom-0 left-0 w-full p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                   <h3 className="text-2xl font-heading font-bold text-white mb-2">{project.title}</h3>
+                <div className="absolute bottom-0 left-0 w-full p-6 lg:p-8 translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                   <h3 className="text-xl lg:text-2xl font-heading font-bold text-white mb-2">{project.title}</h3>
                    <div className="flex items-center gap-2 text-slate-300 text-sm font-medium mb-6">
                      <div className="w-1.5 h-1.5 bg-amber-500 rounded-full"></div>
                      {project.location}
@@ -215,40 +221,47 @@ export default function HomeClient({ lang }: { lang: string }) {
               </motion.div>
             ))}
           </div>
+          
+          {/* Mobil için "Tümünü Gör" butonu */}
+          <div className="mt-8 md:hidden flex justify-center">
+            <Link href={`/${lang}/projeler`} className="flex items-center gap-2 text-sm font-bold text-slate-900 hover:text-amber-600 transition-colors uppercase tracking-widest group bg-white px-6 py-3 rounded-sm border border-slate-200 shadow-sm w-full justify-center">
+               {t.projects_section.btn_see_all} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* --- SERVICES --- */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-20 lg:py-24 relative overflow-hidden">
         <div className="absolute -right-64 top-0 w-128 h-128 bg-blue-100/30 rounded-full blur-[100px] pointer-events-none"></div>
         <div className="container mx-auto max-w-7xl px-6 relative z-10">
-          <div className="text-center mb-16 max-w-3xl mx-auto bg-white/60 backdrop-blur-xl p-8 rounded-2xl border border-white/50 shadow-sm">
-             <h2 className="text-3xl md:text-5xl font-heading font-bold text-slate-900 mb-6">
+          <div className="text-center mb-10 lg:mb-16 max-w-3xl mx-auto bg-white/60 backdrop-blur-xl p-6 lg:p-8 rounded-2xl border border-white/50 shadow-sm">
+             <h2 className="text-2xl md:text-5xl font-heading font-bold text-slate-900 mb-4 lg:mb-6">
                {t.services_section.title_main} <span className="text-blue-900">{t.services_section.title_sub}</span>
              </h2>
-             <p className="text-slate-600">
+             <p className="text-slate-600 text-sm lg:text-base">
                {t.services_section.description}
              </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
             {services.map((service, i) => (
               <motion.div
                 key={i}
                 whileHover={{ y: -8, boxShadow: "0 20px 30px -10px rgba(0, 0, 0, 0.1)" }}
-                className={`bg-white/70 backdrop-blur-md border ${service.border} p-10 rounded-sm group transition-all duration-300 cursor-default relative overflow-hidden hover:bg-white`}
+                className={`bg-white/70 backdrop-blur-md border ${service.border} p-8 lg:p-10 rounded-sm group transition-all duration-300 cursor-default relative overflow-hidden hover:bg-white`}
               >
                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-linear-to-br from-white to-transparent rounded-full opacity-50 blur-2xl"></div>
 
-                <div className="flex items-center gap-4 mb-8 relative z-10">
-                   <div className={`w-14 h-14 rounded-sm bg-white border border-white/50 shadow-md flex items-center justify-center ${service.color} group-hover:bg-slate-900 group-hover:text-white transition-colors duration-300`}>
-                     <service.icon size={28} />
+                <div className="flex items-center gap-4 mb-6 lg:mb-8 relative z-10">
+                   <div className={`w-12 h-12 lg:w-14 lg:h-14 rounded-sm bg-white border border-white/50 shadow-md flex items-center justify-center ${service.color} group-hover:bg-slate-900 group-hover:text-white transition-colors duration-300`}>
+                     <service.icon size={24} className="lg:w-7 lg:h-7" />
                    </div>
                    <div className="h-px flex-1 bg-slate-200/50 group-hover:bg-slate-200 transition-colors"></div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-slate-900 mb-4 group-hover:text-blue-900 transition-colors relative z-10">{service.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed mb-8 relative z-10">{service.desc}</p>
+                <h3 className="text-lg lg:text-xl font-bold text-slate-900 mb-3 lg:mb-4 group-hover:text-blue-900 transition-colors relative z-10">{service.title}</h3>
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 lg:mb-8 relative z-10">{service.desc}</p>
                 
                 <span className="inline-flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest group-hover:text-amber-600 transition-colors relative z-10">
                   <Layers size={14} /> {t.services_section.btn_details}
