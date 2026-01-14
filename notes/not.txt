@@ -1,0 +1,47 @@
+noir-construction
+├── public                     # (Dışa Açık Dosyalar)
+│   ├── images                 # Proje resimleri, ofis fotoları
+│   ├── videos                 # Hero bölümü için Intro videosu
+│   └── fonts                  # Oswald ve Inter font dosyaları
+│
+├── src
+│   ├── app                    # (ROUTER & SAYFALAR)
+│   │   ├── layout.tsx          # Ana İskelet (Navbar + Footer burada)
+│   │   ├── page.tsx            # Ana Sayfa (Home)
+│   │   │
+│   │   ├── projeler           # (Portfolio)
+│   │   │   ├── page.tsx        # Tüm projelerin listesi
+│   │   │   └── [slug]         # Tekil Proje Detayı (Örn projelervadi-istanbul)
+│   │   │       └── page.tsx    # Dinamik proje sayfası
+│   │   │
+│   │   ├── hizmetler          # (Services)
+│   │   │   └── page.tsx
+│   │   │
+│   │   ├── iletisim           # (Contact)
+│   │   │   └── page.tsx
+│   │   │
+│   │   └── bolge              # (SEO & GEO STRATEJİSİ BURADA!)
+│   │       └── [sehir]        # Dinamik Şehir Sayfaları
+│   │           └── page.tsx    # Örn bolgeistanbul-insaat-firmalari
+│   │
+│   ├── components             # (LEGO PARÇALARI)
+│   │   ├── ui                 # Temel Bileşenler (Buton, Input - Shadcn)
+│   │   ├── aceternity         # Büyülü Efektler (Sparkles, MovingBorders)
+│   │   ├── layout             # Header, Footer, MobileMenu
+│   │   └── sections           # Büyük Bloklar (Hero, ProjectGrid, Stats)
+│   │
+│   ├── data                   # (SENİN ADMIN PANELİN - VERİTABANI YOK)
+│   │   ├── site-config.ts      # Logo, Telefon, Sosyal Medya linkleri
+│   │   ├── projects.ts         # Tüm binainşaat verileri burada (JSON gibi)
+│   │   ├── services.ts         # Hizmet listesi ve açıklamaları
+│   │   └── cities.ts           # Hangi şehirlerde hizmet veriyorsun (SEO için)
+│   │
+│   ├── lib                    # (YARDIMCI FONKSİYONLAR)
+│   │   └── utils.ts            # Tailwind class birleştirici (cn)
+│   │
+│   └── styles
+│       └── globals.css         # Tailwind importları ve özel animasyonlar
+│
+├── next.config.js              # Next.js ayarları
+├── tailwind.config.ts          # Tasarım ayarları (Renkler, Fontlar)
+└── package.json                # Kütüphane listesi

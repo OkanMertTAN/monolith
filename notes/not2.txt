@@ -1,0 +1,111 @@
+1. ANA SAYFA (Vitrin & Manifesto)
+Amaç: Ziyaretçiyi ilk 3 saniyede büyülemek ve "Bunlar büyük oynuyor" dedirtmek.
+
+Giriş (Hero):
+
+Görsel: Arkada ağır çekimde dönen bir vinç, kaynak kıvılcımları veya bitmiş ultra lüks bir villanın gece çekimi.
+
+Slogan: "Geleceği İnşa Et." veya "Betonun Sanata Dönüştüğü Yer."
+
+Butonlar: "Projeleri İncele" (Ana aksiyon) ve "Bize Ulaşın".
+
+Vitrin (Showcase):
+
+Sadece en iyi 3 projenin yer aldığı, üzerine gelince parlayan devasa kartlar.
+
+Felsefe (Mini Hakkımızda):
+
+"Biz sadece bina yapmıyoruz; yaşam alanları ve endüstriyel üsler kurguluyoruz. Mühendislik disiplinini estetik kaygılarla birleştiriyoruz."
+
+Rakamlarla Biz (Güven):
+
+Tamamlanan Proje: 45+
+
+Toplam İnşaat Alanı: 150.000 m²
+
+Şantiye Sayısı: 12
+
+2. PROJELER (Koleksiyon)
+Amaç: İşin kalitesini ve çeşitliliğini kanıtlamak.
+
+Filtreleme Menüsü:
+
+Lüks Konut (Villa, Residence)
+
+Endüstriyel (Fabrika, Depo, Lojistik Merkezi)
+
+Ticari (Plaza, Ofis, AVM)
+
+Proje Detay Sayfası (Bir projeye tıklandığında):
+
+Başlık: Proje Adı + Lokasyon (Örn: "Titan Loft | Bodrum")
+
+Künye (Teknik Veriler):
+
+Yıl: 2024
+
+Alan: 12.500 m²
+
+Durum: Tamamlandı
+
+Hikaye: "Bu projede Ege'nin zorlu coğrafi koşullarına meydan okuyarak, doğayla bütünleşen brüt beton bir yapı tasarladık..." (Teknik ama şiirsel bir dil).
+
+Galeri: Yüksek çözünürlüklü, dergi kalitesinde fotoğraflar.
+
+3. UZMANLIKLAR (Hizmetler)
+Amaç: "Siz tam olarak ne yapıyorsunuz?" sorusuna teknik ve profesyonel cevap vermek.
+
+Anahtar Teslim İnşaat:
+
+"Topraktan iskana kadar tüm süreç yönetimi. Kaba yapı, ince işçilik ve peyzaj."
+
+Endüstriyel Çözümler:
+
+"Ağır sanayi yüklerine dayanıklı zeminler, çelik konstrüksiyon yapılar ve akıllı fabrika altyapıları."
+
+Kentsel Dönüşüm & Güçlendirme:
+
+"Mevcut yapıların modern deprem yönetmeliklerine uygun hale getirilmesi ve değer artışı sağlanması."
+
+Proje Yönetimi & Danışmanlık:
+
+"Bütçe planlama, şantiye şefliği ve yasal izin süreçlerinin yönetimi."
+
+4. KURUMSAL (Hakkımızda)
+Amaç: Güven ve otorite sağlamak.
+
+Hikayemiz: "2010 yılında, inşaat sektöründeki standartları değiştirmek için yola çıktık..."
+
+Vizyon: "Sadece bugünün değil, gelecek yüzyılın yapılarını tasarlamak."
+
+"Deprem Yönetmeliğine %100 Uyum" vurgusu.
+
+Ekip : Baş Mimar veya Kurucunun siyah-beyaz, şık bir portresi ve imzası.
+
+5. BÖLGE SAYFALARI (SEO Stratejisi - Görünmez Kahramanlar)
+Amaç: Google aramalarında yerel müşteriyi yakalamak. (Bu sayfalar menüde görünmez, Google üzerinden gelenler görür)
+
+Örnek Sayfa: "Bodrum Lüks Villa İnşaatı"
+
+Başlık: "Bodrum'da Hayalinizdeki Villayı İnşa Ediyoruz."
+
+İçerik: "Bodrum'un iklimine uygun taş ve beton mimari çözümlerimizle, Yalıkavak ve Türkbükü bölgelerinde hizmetinizdeyiz."
+
+Referans: O bölgede yaptığın işlerden örnekler.
+
+6. İLETİŞİM
+Amaç: Ziyaretçiyi müşteriye dönüştürmek.
+
+Slogan: "Bir Sonraki Projenizi Konuşalım."
+
+İletişim Bilgileri: Adres, Telefon, E-mail.
+
+Form: (Sıradan form değil)
+
+Ad Soyad
+
+Proje Türü (Villa / Fabrika / Dönüşüm)
+
+Tahmini Bütçe Aralığı (Opsiyonel - Müşteri kalitesini ölçmek için)
+
+Harita: Ofisin konumu (Google Maps / Leaflet).
